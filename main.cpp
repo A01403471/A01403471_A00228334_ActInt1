@@ -97,7 +97,29 @@ void comparison(string pat, string txt)
     {
         cout << "true " << res[0] << endl;
     }
-    
+}
+
+void palindromo(string txt){
+    int posicionInicial = 0, posicionFinal = 0, der, izq, longest = 0, size = txt.size();
+
+    for (int i = 0; i < size; i++){
+        for (int j = 0; j < 2; j++){
+            izq = i;
+            der = i + j;
+
+            while (izq >= 0 && der < size && txt[izq] == txt[der]){
+                izq--;
+                der++;
+            }
+
+            if (der - izq - 1 > longest){
+                longest = der - izq - 1;
+                posicionInicial = izq + 1;
+                posicionFinal = der - 1;
+            }
+        }
+    }
+    cout << posicionInicial << "\t" << posicionFinal << endl;
 }
 
 int main()
@@ -119,6 +141,8 @@ int main()
     comparison(m1, t2);
     comparison(m2, t2);
     comparison(m3, t2);
-        
 
+    palindromo(t1);
+    palindromo(t2);
+    
 }
