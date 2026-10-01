@@ -148,11 +148,11 @@ void substringComun(string t1, string t2){
 
 int main()
 {
-    string nombre_t1 = "transmission1";
-    string nombre_t2 = "transmission2";
-    string nombre_m1 = "mcode1";
-    string nombre_m2 = "mcode2";
-    string nombre_m3 = "mcode3";
+    string nombre_t1 = "transmission1.txt";
+    string nombre_t2 = "transmission2.txt";
+    string nombre_m1 = "mcode1.txt";
+    string nombre_m2 = "mcode2.txt";
+    string nombre_m3 = "mcode3.txt";
     string t1 = leerArchivo(nombre_t1);
     string t2 = leerArchivo(nombre_t2);
     string m1 = leerArchivo(nombre_m1);
