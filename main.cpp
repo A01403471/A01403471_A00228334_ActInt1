@@ -122,6 +122,30 @@ void palindromo(string txt){
     cout << posicionInicial << "\t" << posicionFinal << endl;
 }
 
+void substringComun(string t1, string t2){
+    int posicionInicial = 0, posicionFinal = 0, longest = 0, n = t1.size(), m = t2.size();
+    vector<int> anterior(m + 1, 0), actual(m + 1, 0);
+
+    for (int i = 1; i <= n; i++){
+        for (int j = 1; j <= m; j++){
+            if (t1[i - 1] == t2[j - 1]){
+                actual[j] = 1 + anterior[j - 1];
+
+                if (actual[j] > longest){
+                    longest = actual[j];
+                    posicionFinal = i - 1;
+                    posicionInicial = i - longest;
+                }
+            }
+            else{
+                actual[j] = 0;
+            }
+        }
+        anterior = actual;
+    }
+    cout << posicionInicial << "\t" << posicionFinal << endl;
+}
+
 int main()
 {
     string nombre_t1 = "transmission1";
@@ -145,4 +169,5 @@ int main()
     palindromo(t1);
     palindromo(t2);
     
+    substringComun(t1, t2);
 }
